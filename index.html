@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Car Viewer</title>
 
-  <!-- Correct MeshoptDecoder import -->
-  <script type="module">
-    import MeshoptDecoder from 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
-    window.MeshoptDecoder = MeshoptDecoder;
-  </script>
-
   <!-- Model Viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -33,21 +27,25 @@
   </style>
 </head>
 <body>
+  <!-- Use meshopt-decoder attribute for compressed GLB -->
   <model-viewer id="carModel"
                 src="./scorpio-compressed.glb"
                 alt="3D Car Model"
                 auto-rotate
                 camera-controls
-                ar>
+                ar
+                meshopt-decoder="https://unpkg.com/meshoptimizer/meshopt_decoder.module.js">
   </model-viewer>
 
   <script>
     const modelViewer = document.getElementById("carModel");
 
+    // Fires when model is loaded successfully
     modelViewer.addEventListener("load", () => {
       console.log("✅ Model loaded successfully!");
     });
 
+    // Fires when there is an error loading the model
     modelViewer.addEventListener("error", (event) => {
       console.error("❌ Error loading model:", event);
       alert("Error loading the model. Check console for details.");
