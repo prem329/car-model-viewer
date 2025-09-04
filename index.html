@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Car Viewer</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: #f4f4f4;
-      }
-      model-viewer {
-        width: 100%;
-        height: 100%;
-        max-width: 1000px;
-        max-height: 700px;
-      }
-    </style>
+
+    <!-- Import model-viewer library -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
   </head>
-  <body>
+  <body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f4f4;">
+    
+    <!-- 3D Car Viewer with AR -->
     <model-viewer
-      src="scorpio-compressed.glb"
+      src="./scorpio-compressed.glb"
       alt="3D Model of Mahindra Scorpio"
       ar
       ar-modes="scene-viewer quick-look webxr"
@@ -33,8 +25,12 @@
       rotation-per-second="30deg"
       environment-image="neutral"
       shadow-intensity="1"
-      exposure="1.2">
+      exposure="1.2"
+      style="width: 100%; height: 100%; max-width: 900px; max-height: 600px; border-radius: 16px; background:white;"
+    >
     </model-viewer>
+    
   </body>
 </html>
+
 
