@@ -7,8 +7,7 @@
 
   <!-- Meshopt Decoder -->
   <script type="module">
-    import { MeshoptDecoder } from 'https://unpkg.com/meshoptimizer/meshopt_decoder.js';
-    // Make globally available for model-viewer
+    import { MeshoptDecoder } from 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
     window.MeshoptDecoder = MeshoptDecoder;
   </script>
 
@@ -43,6 +42,9 @@
   </model-viewer>
 
   <script>
+    // Set the Meshopt decoder location
+    document.querySelector('model-viewer').meshoptDecoderLocation = 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
+
     const modelViewer = document.getElementById("carModel");
 
     modelViewer.addEventListener("load", () => {
