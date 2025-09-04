@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Car Viewer</title>
 
-  <!-- Meshopt Decoder -->
+  <!-- Correct MeshoptDecoder import -->
   <script type="module">
-    import { MeshoptDecoder } from 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
+    import MeshoptDecoder from 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
     window.MeshoptDecoder = MeshoptDecoder;
   </script>
 
@@ -42,9 +42,6 @@
   </model-viewer>
 
   <script>
-    // Set the Meshopt decoder location
-    document.querySelector('model-viewer').meshoptDecoderLocation = 'https://unpkg.com/meshoptimizer/meshopt_decoder.module.js';
-
     const modelViewer = document.getElementById("carModel");
 
     modelViewer.addEventListener("load", () => {
