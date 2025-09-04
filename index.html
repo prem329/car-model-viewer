@@ -8,7 +8,8 @@
   <!-- Meshopt Decoder -->
   <script type="module">
     import { MeshoptDecoder } from 'https://unpkg.com/meshoptimizer/meshopt_decoder.js';
-    self.MeshoptDecoder = MeshoptDecoder;
+    // Make globally available for model-viewer
+    window.MeshoptDecoder = MeshoptDecoder;
   </script>
 
   <!-- Model Viewer -->
@@ -28,7 +29,7 @@
       height: 90vh;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      background-color: lightblue; /* force background so we know canvas is there */
+      background-color: lightblue;
     }
   </style>
 </head>
@@ -44,18 +45,15 @@
   <script>
     const modelViewer = document.getElementById("carModel");
 
-    // Fires when model is loaded successfully
     modelViewer.addEventListener("load", () => {
       console.log("✅ Model loaded successfully!");
     });
 
-    // Fires when there is an error loading the model
     modelViewer.addEventListener("error", (event) => {
       console.error("❌ Error loading model:", event);
       alert("Error loading the model. Check console for details.");
     });
 
-    // Debug log to confirm script is running
     console.log("🚀 index.html loaded, waiting for model...");
   </script>
 </body>
